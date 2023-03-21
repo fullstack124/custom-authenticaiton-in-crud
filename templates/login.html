@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<p class="sign" align="center">Sign in</p>
+<form class="form1">
+    <input class="un " type="text" align="center" placeholder="Username">
+    <input class="pass" type="password" align="center" placeholder="Password">
+    <a href="{% url 'todo_list' %}" class="submit" align="center">Sign in</a>
+    <p class="forgot" align="center"><a >Forgot Password?</p>
+</form>
+{% endblock %}
