@@ -6,10 +6,16 @@ Login
 
 {% block content %}
 <p class="sign" align="center">Sign in</p>
-<form class="form1">
-    <input class="un " type="text" align="center" placeholder="Username">
-    <input class="pass" type="password" align="center" placeholder="Password">
-    <a href="{% url 'todo_list' %}" class="submit" align="center">Sign in</a>
+{% for message in messages %}
+<div>
+    <p style="color: green;">{{ message | safe  }}</p>
+</div>
+{% endfor %}
+<form class="form1" method="POST">
+    {% csrf_token %}
+    <input class="un " type="email" align="center" name="email" placeholder="Email">
+    <input class="pass" type="password" align="center" name="password" placeholder="Password">
+    <button  type="submit" class="submit" align="center">Sign in</button>
     <p class="forgot" align="center"><a >Forgot Password?</p>
 </form>
 {% endblock %}

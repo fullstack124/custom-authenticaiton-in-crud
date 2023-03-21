@@ -6,20 +6,16 @@ Register
 
 {% block content %}
 <p class="sign" align="center">Sign in</p>
-
-{% for message in messages %}
-<div class="alert {{ message.tags }} alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    {{ message | safe}}
-</div>
-{% endfor %}
 <form class="form1" method="POST">
+    {% for message in messages %}
+    <div>
+        <p style="color: red;">{{ message | safe  }}</p>
+    </div>
+    {% endfor %}
    {% csrf_token %}
-    <input class="un " type="text" align="center" placeholder="Username">
-    <input class="un " type="email" align="center" placeholder="Email">
-    <input class="pass" type="password" align="center" placeholder="Password">
+    <input class="un" type="text" align="center" name="name" placeholder="Username">
+    <input class="un" type="email" align="center" name="email" placeholder="Email">
+    <input class="pass" type="password" align="center" name="password" placeholder="Password">
     <button  type="submit" class="submit" align="center">Sign in</button>
     <p class="forgot" align="center"><a href="#">Forgot Password?</p>
 </form>
